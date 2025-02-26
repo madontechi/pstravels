@@ -113,7 +113,7 @@ h6,
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(28, 30, 50, .7);
+    background: rgb(28 30 50 / 2%);;
     z-index: 1;
 }
 
