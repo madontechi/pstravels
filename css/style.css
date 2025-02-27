@@ -150,11 +150,17 @@ h6,
     height: 320px;
     background: var(--light);
     transition: .5s;
+    background-size: cover;
+/* background-position: center; */
+
+
 }
+
 
 .service-item:hover,
 .service-item.active {
-    background: var(--secondary);
+    transform: scale(1.01);
+    transition: transform 0.3s ease-in-out;
 }
 
 .service-item h1,
@@ -585,4 +591,127 @@ border-radius: 30px;
 
 
 
-/* testimonal css */
+/* why us new about  css */
+.why-choose-us {
+    width: 100vw; /* Full screen width */
+    background: #d1d1d1; /* Light background */
+    padding: 50px 0;
+}
+
+.why-choose-us .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 15px; /* Space between items */
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    
+}
+
+.feature-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #007bff; /* Primary color background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.icon-circle i {
+    color: white;
+    font-size: 32px;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Hover effect */
+.icon-circle:hover {
+    background: #0056b3; /* Darker shade on hover */
+    transform: scale(1.1);
+}
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .features {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+.about-us {
+    width: 100vw; /* Full width */
+    background: #f8f9fa; /* Light background */
+    /* padding: 50px 0; */
+    text-align: center;
+}
+
+.heading-panel h1 {
+    font-size: 28px;
+    font-weight: bold;
+    /* margin-bottom: 20px; */
+}
+
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.icons-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--primary); /* Primary blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.icons-circle i {
+    color: white;
+    font-size: 32px;
+}
+
+/* Hover Effect */
+.icons-circle:hover {
+    background: var(--primary);
+    transform: scale(1.1);
+}
+
+/* Responsive Grid */
+@media (max-width: 992px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-4 {
+        width: 100%;
+    }
+}
