@@ -130,14 +130,17 @@ h6,
 }
 
 .page-header {
-    height: 400px;
-    margin-bottom: 90px;
+    height: 200px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(28, 30, 50, .9), rgba(28, 30, 50, .9)), url(../img/bg-banner.jpg);
+    background: linear-gradient(rgba(28, 30, 50, .9), rgba(28, 30, 50, .9)), url(../img/bacground/anout\ bg.png);
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
 
 @media (max-width: 991.98px) {
