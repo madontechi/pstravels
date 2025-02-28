@@ -668,7 +668,7 @@ border-radius: 30px;
 }
 
 .heading-panel h1 {
-    font-size: 28px;
+    /* font-size: 28px; */
     font-weight: bold;
     /* margin-bottom: 20px; */
 }
@@ -790,7 +790,7 @@ border-radius: 30px;
 
 .card {
 	position: relative;
-	background: rgba(255, 145, 0, 0.1);
+	background: rgba(255, 255, 255, 0.238);
 	border-radius: 8px;
 	padding: 20px;
 	backdrop-filter: blur(10px);
@@ -804,7 +804,7 @@ border-radius: 30px;
 	opacity: 1;
 }
 .card:hover {
-	background: rgba(255, 217, 0, 0.1);
+	background: rgb(255, 255, 255);
 }
 
 .slide-group:hover .card:not(:hover) {
