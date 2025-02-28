@@ -127,3 +127,110 @@
     
 })(jQuery);
 
+
+
+$(document).ready(function () {
+	const slider = $(".slider");
+	const slideGroups = $(".slide-group");
+	const totalSlides = slideGroups.length;
+	let currentSlide = 0;
+
+	const dotsContainer = $(".slider-dots");
+	for (let i = 0; i < totalSlides; i++) {
+		dotsContainer.append(`<div class="dot ${i === 0 ? "active" : ""}"></div>`);
+	}
+
+	$(".next-btn").click(() => navigate(1));
+	$(".prev-btn").click(() => navigate(-1));
+
+	$(".dot").click(function () {
+		const index = $(this).index();
+		goToSlide(index);
+	});
+
+	function navigate(direction) {
+		currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+		goToSlide(currentSlide);
+	}
+
+	function goToSlide(index) {
+		slider.css("transform", `translateX(-${index * 100}%)`);
+		$(".dot").removeClass("active").eq(index).addClass("active");
+		currentSlide = index;
+	}
+
+	$(".card").each(function () {
+		const card = $(this);
+
+		card.on("mousemove", function (e) {
+			const rect = this.getBoundingClientRect();
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+
+			const centerX = rect.width / 2;
+			const centerY = rect.height / 2;
+
+			const rotateX = ((y - centerY) / centerY) * 15;
+			const rotateY = ((centerX - x) / centerX) * 15;
+
+			this.style.setProperty("--card-rotate-x", `${rotateX}deg`);
+			this.style.setProperty("--card-rotate-y", `${rotateY}deg`);
+		});
+
+		card.on("mouseleave", function () {
+			this.style.setProperty("--card-rotate-x", "0deg");
+			this.style.setProperty("--card-rotate-y", "0deg");
+		});
+	});
+
+	let touchStartX = 0;
+	let touchEndX = 0;
+
+	slider.on("touchstart", function (e) {
+		touchStartX = e.originalEvent.touches[0].clientX;
+	});
+
+	slider.on("touchend", function (e) {
+		touchEndX = e.originalEvent.changedTouches[0].clientX;
+		const diff = touchStartX - touchEndX;
+
+		if (Math.abs(diff) > 50) {
+			navigate(diff > 0 ? 1 : -1);
+		}
+	});
+
+	const $bokehBackground = $("#bokeh-background");
+	const numBokeh = 25;
+	const colors = [
+		// { start: "rgba(255, 69, 0, .6)", end: "rgba(255, 69, 0, 0.25)" },
+		// { start: "rgba(255, 0, 0, .6)", end: "rgba(255, 0, 0, 0.25)" },
+		// { start: "rgba(255, 165, 0, .6)", end: "rgba(255, 165, 0, 0.25)" },
+		// { start: "rgba(255, 20, 147, .6)", end: "rgba(255, 20, 147, 0.25)" },
+		// { start: "rgba(238, 130, 238, .6)", end: "rgba(238, 130, 238, 0.25)" },
+		// { start: "rgba(148, 0, 211, .6)", end: "rgba(148, 0, 211, 0.25)" }
+	];
+
+	for (let i = 0; i < numBokeh; i++) {
+		const $bokeh = $("<div>").addClass("bokeh");
+		const size = Math.random() * 120 + 50;
+		const left = Math.random() * 100;
+		const top = Math.random() * 100;
+		const color = colors[Math.floor(Math.random() * colors.length)];
+		const background = `radial-gradient(circle, ${color.start} 0%, ${color.end} 100%)`;
+		const animationDelay = `${Math.random() * 2}s`;
+		const animationDuration = `${Math.random() * 10 + 10}s`;
+
+		$bokeh.css({
+			width: `${size}px`,
+			height: `${size}px`,
+			left: `${left}%`,
+			top: `${top}%`,
+			background: background,
+			animationDelay: animationDelay,
+			animationDuration: animationDuration
+		});
+
+		$bokehBackground.append($bokeh);
+	}
+});
+
