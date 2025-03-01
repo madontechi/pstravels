@@ -150,7 +150,7 @@ h6,
 }
 
 .service-item {
-    height: 320px;
+    height: 620px;
     background: var(--light);
     transition: .5s;
     background-size: cover;
@@ -1219,7 +1219,7 @@ border-radius: 30px;
 
     /* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap'); */
 		html {
-        scroll-behavior: smooth;
+        /* scroll-behavior: smooth; */
         }
 		
 		
@@ -1319,6 +1319,10 @@ border-radius: 30px;
 		}
 
 @media (max-width:300px){
+    .section2,.section3 .title{
+        font-size: 0.5rem;
+
+    }
   .section2,.section3{
     font-size:12px;
   }
