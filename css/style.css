@@ -105,6 +105,7 @@ h6,
 
 @media (max-width: 991.98px) {
     .navbar-dark .navbar-nav .nav-link  {
+        font-size: 15px;
         padding: 10px 15px;
     }
 }
