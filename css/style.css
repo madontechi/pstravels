@@ -8,6 +8,9 @@
 /* body{
     font-family: ;
 } */
+.fa-phone {
+    transform: scaleX(-1);
+}
 
 h1,
 h2,
